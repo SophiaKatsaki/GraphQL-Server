@@ -1,0 +1,34 @@
+{
+    "teachers": [
+        {
+            "id": "12345",
+            "name": "John Stamelos",
+            "telephone": "1234567",
+            "email": "stamelos@csd.auth.gr"
+        },
+        {
+            "id": "56789",
+            "name": "Maria Papadopoulou",
+            "telephone": "5678910",
+            "email": "mariapap@.auth.gr"
+        },
+        {
+            "id": "98765",
+            "name": "Aggelos Dimitriou",
+            "telephone": "9876543",
+            "email": "aggeldim@.auth.gr"
+        },
+        {
+            "id": "78653",
+            "name": "Alexandros Ioannou",
+            "telephone": "7865328",
+            "email": "alexandio@csd.auth.gr"
+        },
+        {
+            "id": "99342",
+            "name": "Dimitra Hatzioannou",
+            "telephone": "9934286",
+            "email": "dimhatz@csd.auth.gr"
+        }
+      ] 
+}
