@@ -3,3 +3,4 @@
 ```diff
 +Implementation of a simple GraphQL Server of a University
 +Programming Language used: Javascript
++Program Used: Visual Studio Code
