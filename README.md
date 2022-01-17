@@ -1,6 +1,6 @@
 # GraphQL-Server
 ```diff
-*Coding School Project 3:
+Coding School Project 3:
 +Implementation of a simple GraphQL Server of a University
 +Programming Language used: Javascript
 
