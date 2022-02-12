@@ -1,30 +1,27 @@
 {
-  "name": "university",
+  "name": "university2",
   "version": "1.0.0",
   "description": "University GraphQL Server",
   "main": "server.js",
   "scripts": {
     "dev:server": "nodemon server.js",
-    "json:server": "json-server --watch data.json",
-    "start": "node server.js"
+    "json:server": "json-server --watch data.json"
   },
-  "author": "Sophia Katsaki",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "express": "^4.17.2",
-    "express-graphql": "^0.12.0",
-    "graphql": "^16.2.0",
-    "json-server": "^0.17.0",
-    "nodemon": "^2.0.15"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SophiaKatsaki/GraphQL-Server.git"
   },
+  "author": "Sophia Katsaki",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/SophiaKatsaki/GraphQL-Server/issues"
   },
-  "homepage": "https://github.com/SophiaKatsaki/GraphQL-Server#readme"
+  "homepage": "https://github.com/SophiaKatsaki/GraphQL-Server#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.2",
+    "express-graphql": "^0.12.0",
+    "json-server": "^0.17.0",
+    "nodemon": "^2.0.15"
+  }
 }
