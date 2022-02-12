@@ -1,34 +1,122 @@
 {
-    "teachers": [
-        {
-            "id": "12345",
-            "name": "John Stamelos",
-            "telephone": "1234567",
-            "email": "stamelos@csd.auth.gr"
-        },
-        {
-            "id": "56789",
-            "name": "Maria Papadopoulou",
-            "telephone": "5678910",
-            "email": "mariapap@.auth.gr"
-        },
-        {
-            "id": "98765",
-            "name": "Aggelos Dimitriou",
-            "telephone": "9876543",
-            "email": "aggeldim@.auth.gr"
-        },
-        {
-            "id": "78653",
-            "name": "Alexandros Ioannou",
-            "telephone": "7865328",
-            "email": "alexandio@csd.auth.gr"
-        },
-        {
-            "id": "99342",
-            "name": "Dimitra Hatzioannou",
-            "telephone": "9934286",
-            "email": "dimhatz@csd.auth.gr"
-        }
-      ] 
+  "teachers": [
+    {
+      "id": "12345",
+      "name": "John Stamelos",
+      "telephone": "1234567",
+      "email": "stamelos@csd.auth.gr",
+      "subjects_Of_teacher": [
+        3
+      ]
+    },
+    {
+      "id": "56789",
+      "name": "Maria Papadopoulou",
+      "telephone": "5678910",
+      "email": "mariapap@.auth.gr",
+      "subjects_Of_teacher": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "98765",
+      "name": "Aggelos Dimitriou",
+      "telephone": "9876543",
+      "email": "aggeldim@.auth.gr",
+      "subjects_Of_teacher": [
+        4
+      ]
+    },
+    {
+      "id": "78653",
+      "name": "Alexandros Ioannou",
+      "telephone": "7865328",
+      "email": "alexandio@csd.auth.gr",
+      "subjects_Of_teacher": [
+        5
+      ]
+    },
+    {
+      "name": "Dimitris Ioannidis",
+      "telephone": "3647269",
+      "email": "dimio@auth.gr",
+      "subjects_Of_teacher": [
+        6
+      ],
+      "id": "q7I1nfC"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "1",
+      "name": "Math",
+      "iscompulsory": "elective",
+      "semester": 4,
+      "department": "Computer Science Department"
+    },
+    {
+      "id": "2",
+      "name": "Physics",
+      "iscompulsory": "compulsory",
+      "semester": 3,
+      "department": "Physics Department"
+    },
+    {
+      "id": "3",
+      "name": "Software Engineering",
+      "iscompulsory": "compulsory",
+      "semester": 5,
+      "department": "Computer Science Department"
+    },
+    {
+      "id": "4",
+      "name": "German",
+      "iscompulsory": "elective",
+      "semester": 7,
+      "department": "Department Of European Studies"
+    },
+    {
+      "id": "5",
+      "name": "Computer Music",
+      "iscompulsory": "elective",
+      "semester": 8,
+      "department": "Computer Science Department"
+    },
+    {
+      "id": "6",
+      "name": "Art History",
+      "iscompulsory": "compulsory",
+      "semester": 2,
+      "department": "Art Studies Department"
+    },
+    {
+      "id": "7",
+      "name": "Ancient Greek",
+      "iscompulsory": "compulsory",
+      "semester": 1,
+      "department": "Philosophy Department"
+    },
+    {
+      "id": "8",
+      "name": "Music",
+      "iscompulsory": "elective",
+      "semester": 6,
+      "department": "Art Studies Department"
+    },
+    {
+      "id": "9",
+      "name": "Acting",
+      "iscompulsory": "elective",
+      "semester": 3,
+      "department": "Art Studies Department"
+    },
+    {
+      "id": "10",
+      "name": "Java",
+      "iscompulsory": "compulsory",
+      "semester": 3,
+      "department": "Computer Science Department"
+    }
+  ]
 }
