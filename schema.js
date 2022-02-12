@@ -8,6 +8,28 @@ const {
     GraphQLNonNull
 } =require('graphql');
 
+//Subject Type
+const SubjectType = new GraphQLObjectType({
+    name:'Subject',
+    fields:() => ({
+        //the unique code of the subject
+        id: {type:GraphQLString},
+
+        //its name 
+        name: {type:GraphQLString},
+
+        //compulsory or elective course
+        iscompulsory: {type:GraphQLString},
+
+        //the semester that the subject belongs
+        semester: {type:GraphQLInt},
+
+        //the department that the subject belongs to
+        department: {type:GraphQLString}
+
+    })
+})
+
 //Teacher Type
 const TeacherType = new GraphQLObjectType({
     name:'Teacher',
@@ -24,59 +46,15 @@ const TeacherType = new GraphQLObjectType({
         //their email
         email: {type:GraphQLString},
 
-        //the subject that they teach
-        //subject: {type:SubjectType}
+        //the subjects that they teach
+       subjects_Of_teacher:
+       {
+           type: new GraphQLList(GraphQLInt)
+        
+       }
             
     })
 })
-
-//Subject Type
-/*const SubjectType = new GraphQLObjectType({
-    name:'Subject',
-    fields:() => ({
-        //the unique code of the subject
-        id: {Type:GraphQLString},
-
-        //its name 
-        name: {Type:GraphQLString},
-
-        //compulsory or elective course
-        iscompulsory: {Type:GraphQLString},
-
-        //the semester that the subject belongs
-        semester: {Type:GraphQLInt},
-
-        //the department that the subject belongs to
-        department: {Type:GraphQLString}
-
-    })
-})
-*/
-
-
-//Student Type
-/*const StudentType = new GraphQLObjectType({
-    name:'Student',
-    fields:() => ({
-        //their personal and unique id
-        id: {Type:GraphQLString},
-
-        //their name
-        name: {Type:GraphQLString},
-
-        //their email
-        email: {Type:GraphQLString},
-
-        //they department that they study in
-        department:{Type:GraphQLString},
-
-        //the year that they entered University
-        register_year: {Type:GraphQLInt}
-            
-    })
-})
-*/
-
 
 
 //our Root Query
@@ -93,15 +71,35 @@ const RootQuery=new GraphQLObjectType({
                return axios.get('http://localhost:3000/teachers/' + args.id)
                .then(res =>  res.data);
             }
-       },
+        },
        teachers:{
         type:new GraphQLList(TeacherType),
         resolve(parentValue,args)
         {
             return axios.get('http://localhost:3000/teachers')
             .then(res =>  res.data);
+        },
+    },
+    subject:{
+            type: SubjectType,
+            args:{ 
+                id:{type:GraphQLString}
+            },
+            resolve(parentValue,args)
+            {
+                return axios.get('http://localhost:3000/subjects/'+args.id)
+                .then(res => res.data);
+            },
+        },
+        subjects:{
+                type: new GraphQLList(SubjectType),
+                resolve(parentValue,args)
+                {
+                    return axios.get('http://localhost:3000/subjects')
+                    .then( res => res.data);
+                }
         }
-    }
+
     }
    
 });
@@ -114,14 +112,16 @@ const mutation = new GraphQLObjectType({
             args:{
                 name: {type:new GraphQLNonNull(GraphQLString)},
                 telephone: {type:new GraphQLNonNull(GraphQLString)},
-                email: {type:new GraphQLNonNull(GraphQLString)}
+                email: {type:new GraphQLNonNull(GraphQLString)},
+                subjects_Of_teacher: {type: new GraphQLList(GraphQLInt)}
 
             },
             resolve(parentValue,args){
               return axios.post('http://localhost:3000/teachers',
               {name:args.name,
                telephone:args.telephone,
-               email:args.email})
+               email:args.email,
+               subjects_Of_teacher:args.subjects_Of_teacher})
                .then(res => res.data); 
             }
         },
@@ -141,16 +141,62 @@ const mutation = new GraphQLObjectType({
                 id:{type: new GraphQLNonNull(GraphQLString)},
                 name: {type: GraphQLString},
                 telephone: {type:GraphQLString},
-                email: {type:GraphQLString}
+                email: {type:GraphQLString},
+                subjects_Of_teacher: {type: new GraphQLList(GraphQLInt)}
 
             },
             resolve(parentValue,args){
               return axios.patch('http://localhost:3000/teachers/' + args.id, args)
              .then(res => res.data); 
             }
-        }
-    
-    }
+        },
+
+        addSubject:{
+            type: SubjectType,
+            args:{
+                name: {type:new GraphQLNonNull(GraphQLString)},
+                iscompulsory: {type:new GraphQLNonNull(GraphQLString)},
+                semester: {type:new GraphQLNonNull(GraphQLInt)},
+                department: {type: new GraphQLNonNull (GraphQLString)}
+
+            },
+            resolve(parentValue,args){
+              return axios.post('http://localhost:3000/subjects',
+              {name:args.name,
+               iscompulsory:args.iscompulsory,
+               semester:args.semester,
+               department: args.department})
+               .then(res => res.data); 
+            }
+        },
+        deleteSubject:{
+            type: SubjectType,
+            args:{
+                id:{type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parentValue,args){
+              return axios.delete('http://localhost:3000/subjects/'+args.id)
+             .then(res => res.data); 
+            }
+        },
+        editSubject:{
+            type: SubjectType,
+            args:{
+                id:{type: new GraphQLNonNull(GraphQLString)},
+                name: {type: GraphQLString},
+                iscompulsory: {type:GraphQLString},
+                semester: {type: GraphQLInt},
+                department: {type:GraphQLString}
+
+            },
+            resolve(parentValue,args){
+              return axios.patch('http://localhost:3000/subjects/' + args.id, args)
+             .then(res => res.data); 
+            }
+        } 
+
+    } 
+
 })
 
 module.exports=new GraphQLSchema({
