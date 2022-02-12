@@ -1,7 +1,7 @@
 # GraphQL-Server
 ## Coding School Project 3:
 
-Implementation Of A Simple GraphQL Server Of A University\
+Implementation of a Simple GraphQL Server of a University\
 Programming Language Used: Javascript\
 Program Used: Visual Studio Code\
 Programs Required: Node.js, Git\
