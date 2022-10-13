@@ -1,5 +1,5 @@
 # GraphQL-Server
-## Coding School Project 3:
+## Coding School Project:
 
 Implementation of a Simple GraphQL Server of a University\
 Programming Language used: Javascript\
