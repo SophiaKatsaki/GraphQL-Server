@@ -1,7 +1,7 @@
 # GraphQL-Server
-## Coding School Project:
+## Coding School of Aristotle University Thessaloniki Project:
 
-Implementation of a Simple GraphQL Server of a University\
+Implementation of a simple GraphQL Server of a University\
 Programming Language used: Javascript\
 Program used: Visual Studio Code\
 Programs Required: Node.js, Git\
