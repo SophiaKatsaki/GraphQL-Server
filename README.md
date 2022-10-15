@@ -7,4 +7,4 @@
 **Programs Required**: Node.js, Git
 
 *Run: "dev:server" or  "node server.js" to connect to local server port 4000.\
-      "npm run json:server" to connect to json server on local host 300.*
+      "npm run json:server" to connect to json server on local host 3000.*
